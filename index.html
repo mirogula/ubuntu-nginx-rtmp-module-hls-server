@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+		<head>
+			 <meta charset="UTF-8">
+			 <title>Live Streaming</title>
+			 <link href="http://vjs.zencdn.net/6.6.3/video-js.css" rel="stylesheet">
+		   <script src="http://vjs.zencdn.net/6.6.3/video.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.12.2/videojs-contrib-hls.min.js"></script>
+		</head>
+		<body>
+		<div style="margin-bottom:10px;">
+			<span>http://</span>
+			<input type="text" id="host-txt-in" value="localhost">
+			<span>:8080/hls/</span>
+			<input type="text" id="stream-name-txt-in" value="stream1">
+			<span>.m3u8</span>
+			<input type="button" id="play-btn" value="play">
+		</div>
+		<video id="player" class="video-js vjs-default-skin" width="640" height="480" preload="none">
+			 <source id="player-src" src="" type="application/x-mpegURL" />
+		</video>
+		<script>
+			document.getElementById('play-btn').onclick = () => {
+				var host = document.getElementById('host-txt-in').value;
+				var streamName = document.getElementById('stream-name-txt-in').value;
+				var srcStr = 'http://'+host+':8080/hls/'+streamName+'.m3u8';
+				document.getElementById('player-src').src = srcStr;
+				var player = videojs('#player');
+				player.play();
+			}
+		</script>
+	</body>
+</html>
