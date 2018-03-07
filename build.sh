@@ -7,4 +7,4 @@ fi
 
 version="$1"
 
-docker build -t mirogula/ubuntu-nginx-rtmp-module-hls-server:"$version" -t mirogula/ubuntu-nginx-rtmp-module-hls-server:latest .
+docker build -t mirogula/ubuntu-nginx-rtmp-module-hls-server:"$version" -t mirogula/ubuntu-nginx-rtmp-module-hls-server .
